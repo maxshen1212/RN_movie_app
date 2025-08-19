@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// This custom hook is for fetching data, loading state, and error handling.
+// custom hook for fetching data, loading state, and error handling.
 const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);

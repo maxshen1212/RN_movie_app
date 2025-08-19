@@ -3,6 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
+import { updateSearchCount } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
@@ -21,7 +22,6 @@ const Search = () => {
     const timeoutID = setTimeout(async () => {
       if (searchQuery.trim()) {
         await lodaMovies();
-        console.log("Movies fetched");
       } else {
         reset();
       }
@@ -29,6 +29,12 @@ const Search = () => {
 
     return () => clearTimeout(timeoutID);
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (movies?.[0]) {
+      updateSearchCount(searchQuery, movies[0]);
+    }
+  }, [movies]);
 
   return (
     <View className="flex-1 bg-primary">
@@ -61,6 +67,7 @@ const Search = () => {
                 placeHolder="Search Movies..."
                 value={searchQuery}
                 onChangeText={(text: string) => setsearchQuery(text)}
+                editable={true}
               />
             </View>
             {loading && <ActivityIndicator size="large" color={"#0000ff"} />}
