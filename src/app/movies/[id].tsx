@@ -10,8 +10,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { icons } from "@/constants/icons";
+import useFetch from "@/hooks/useFetch";
 import { fetchMovieDetails } from "@/services/api";
-import useFetch from "@/services/useFetch";
 
 interface MovieInfoProps {
   label: string;

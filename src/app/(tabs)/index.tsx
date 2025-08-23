@@ -3,10 +3,10 @@ import SearchBar from "@/components/SearchBar";
 import TrendingCard from "@/components/TrendingCard";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
+import useFetch from "@/hooks/useFetch";
 import { fetchMovies } from "@/services/api";
 import { getTrendingMovies } from "@/services/appwrite";
-import useFetch from "@/services/useFetch";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import {
   ActivityIndicator,
   FlatList,
@@ -16,7 +16,7 @@ import {
   View,
 } from "react-native";
 
-export default function Index() {
+export default function index() {
   const router = useRouter();
   const {
     data: trendingMovies,
@@ -96,6 +96,9 @@ export default function Index() {
             </>
           </View>
         )}
+        <Link href={"/login"} className=" text-white text-center">
+          login page
+        </Link>
       </ScrollView>
     </View>
   );

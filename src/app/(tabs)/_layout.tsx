@@ -1,8 +1,7 @@
-import { Tabs } from "expo-router";
-import { Image, ImageBackground, Text, View } from "react-native";
-
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
+import { Tabs } from "expo-router";
+import { Image, ImageBackground, Text, View } from "react-native";
 
 function TabIcon({ focused, icon, title }: any) {
   if (focused) {
@@ -53,7 +52,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "index",
+          title: "Index",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.home} title="Home" />

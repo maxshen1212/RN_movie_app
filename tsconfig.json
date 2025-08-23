@@ -4,7 +4,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
+      "@/assets/*": ["./assets/*"]
     }
   },
   "include": [
@@ -12,8 +13,9 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "app/_layout.tsx",
+    "src/app/_layout.tsx",
     "nativewind-env.d.ts",
-    "types/**/*.d.ts"
+    "src/types/**/*.d.ts",
+    "assets/**/*.png"
   ]
 }
